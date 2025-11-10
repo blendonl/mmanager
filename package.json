@@ -1,0 +1,35 @@
+{
+  "name": "money-manager-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Money Manager - React Native + NestJS Monorepo",
+  "workspaces": [
+    "packages/*",
+    "packages/libs/*"
+  ],
+  "scripts": {
+    "bootstrap": "yarn install",
+    "test": "yarn workspaces run test",
+    "lint": "yarn workspaces run lint",
+    "build": "yarn workspaces run build",
+    "server:dev": "yarn workspace @money-manager/server start:dev",
+    "server:build": "yarn workspace @money-manager/server build",
+    "server:start": "yarn workspace @money-manager/server start:prod",
+    "mobile:start": "yarn workspace @money-manager/mobile start",
+    "mobile:android": "yarn workspace @money-manager/mobile android",
+    "mobile:ios": "yarn workspace @money-manager/mobile ios",
+    "docker:up": "docker-compose up --build",
+    "docker:down": "docker-compose down",
+    "prisma:migrate": "yarn workspace @money-manager/server prisma migrate dev",
+    "prisma:studio": "yarn workspace @money-manager/server prisma studio"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "yarn": ">=1.22.0"
+  }
+}
